@@ -10,9 +10,8 @@ Gestion multi-campagnes, battlemap temps réel pour OBS, tracker d'initiative,
 dés 3D et bot Discord — dans une seule application desktop.
 
 [![Version](https://img.shields.io/badge/version-1.0.5-8b5cf6)](https://github.com/Hunger-18/olkarya-map-system/releases)
-[![Plateforme](https://img.shields.io/badge/platform-Windows-3b82f6)](https://github.com/Hunger-18/olkarya-map-system/releases)
-[![Stack](https://img.shields.io/badge/stack-Electron%20%7C%20Express%20%7C%20Socket.IO%20%7C%20Discord.js-10b981)](https://github.com/Hunger-18/olkarya-map-system)
-[![Langage](https://img.shields.io/badge/langage-JavaScript-yellow)](https://github.com/Hunger-18/olkarya-map-system)
+[![Plateforme](https://img.shields.io/badge/platform-Windows%20(x64)-3b82f6)](https://github.com/Hunger-18/olkarya-map-system/releases)
+[![Mise%20à%20jour](https://img.shields.io/badge/mise%20à%20jour-automatique-10b981)](https://github.com/Hunger-18/olkarya-map-system/releases)
 
 </div>
 
@@ -22,28 +21,29 @@ dés 3D et bot Discord — dans une seule application desktop.
 
 - [✨ Présentation](#-présentation)
 - [🧩 Fonctionnalités](#-fonctionnalités)
-- [🛠️ Stack technique](#️-stack-technique)
-- [🚀 Installation](#-installation)
-- [🎮 Utilisation](#-utilisation)
+- [⬇️ Téléchargement](#️-téléchargement)
+- [🚀 Premiers pas](#-premiers-pas)
 - [📺 Overlay OBS](#️-overlay-obs)
-- [🗂️ Structure du dépôt](#️-structure-du-dépôt)
-- [📚 Documentation](#-documentation)
-- [💾 Données utilisateur](#-données-utilisateur)
+- [💾 Tes données](#-tes-données)
 - [🛠️ Dépannage](#️-dépannage)
+- [❓ FAQ](#-faq)
 - [📄 Licence](#-licence)
 
 ---
 
 ## ✨ Présentation
 
-Olkarya regroupe tout ce dont un MJ a besoin pour mener ses sessions, en local,
+Olkarya est un logiciel de gestion de campagne pour jeux de rôle sur table
+(D&D 5e), pensé pour le MJ qui joue en direct.
+
+Il regroupe tout ce dont un MJ a besoin pour mener ses sessions, en local,
 sans compte ni service externe :
 
 - un **hub** pour créer et organiser ses campagnes (et one-shots) ;
 - une **interface de campagne** complète : notes, joueurs, PNJ, créatures, cartes,
   tokens, documents, musique, initiative ;
 - une **battlemap temps réel** synchronisée entre la vue MJ et la vue joueurs (OBS) ;
-- un **bot Discord** intégré : dés 3D à l'écran, initiative,jets de mort, musique.
+- un **bot Discord** intégré : dés 3D à l'écran, initiative, jets de mort, musique.
 
 ---
 
@@ -61,8 +61,8 @@ sans compte ni service externe :
 
 ### 📜 Modules de campagne
 
-Notes · Joueurs · PNJ · Créatures · Cartes · Tokens · Documents ·
-⚔️ Initiative · 🎵 Musique · ⚙️ Configuration
+Notes · 🧙 Joueurs · 👹 PNJ · 🐺 Créatures · 🗺️ Cartes · 🪙 Tokens ·
+📎 Documents · ⚔️ Initiative · 🎵 Musique · ⚙️ Configuration
 
 ### 🗺️ Battlemap
 
@@ -76,131 +76,73 @@ Notes · Joueurs · PNJ · Créatures · Cartes · Tokens · Documents ·
 
 - `/roll`, `/av`, `/desav`, `/death-save` — dés 3D animés affichés dans l'overlay OBS.
 - Initiative depuis Discord avec détection du nom du token.
-- Contrôle de la musique de la campagne, multi-serveurs Discord avec lien
-  OBS dédié par serveur.
+- Contrôle de la musique de la campagne.
+- Multi-serveurs Discord : chaque serveur a son propre lien OBS.
 
-### ⬆️ Mises à jour
+### ⬆️ Mises à jour automatiques
 
-L'app détecte les releases GitHub au démarrage, télécharge, extrait et applique
-la mise à jour au prochain lancement (sauvegarde + rollback automatiques).
-
----
-
-## 🛠️ Stack technique
-
-| Composant | Rôle |
-|-----------|------|
-| **Electron** | Application desktop (fenêtre, setup bot, updater) |
-| **Express** | Serveur local — `http://localhost:3000` |
-| **Socket.IO** | Synchronisation temps réel MJ ↔ vue joueurs |
-| **Discord.js v14** | Bot (dés, initiative, musique) — port `4005` |
-| **@3d-dice/dice-box** | Rendu des dés 3D (Babylon.js) |
-| **electron-builder** | Build Windows (`dist/*.zip`) |
+L'application vérifie les nouvelles versions au démarrage. Si une version plus
+récente est disponible, elle te propose le téléchargement et l'installation
+automatique (avec sauvegarde et retour arrière en cas de problème).
 
 ---
 
-## 🚀 Installation
+## ⬇️ Téléchargement
 
-### 🖥️ Utilisateur final
+1. Va sur la page des versions :
+   **[github.com/Hunger-18/olkarya-map-system/releases](https://github.com/Hunger-18/olkarya-map-system/releases)**
+2. Télécharge le fichier `olkarya-map-system-<version>-win.zip`.
+3. Décompresse-le où tu veux (dossier `Olkarya Map System`).
+4. Lance `olkarya-map-system.exe`.
 
-1. Télécharge la dernière release :
-   [github.com/Hunger-18/olkarya-map-system/releases](https://github.com/Hunger-18/olkarya-map-system/releases)
-2. Décompresse le `.zip` où tu veux (dossier `Olkarya Map System`).
-3. Lance `olkarya-map-system.exe`.
+> ⚠️ **Au tout premier lancement**, les données de l'application sont
+> automatiquement copiées vers `%APPDATA%\olkarya-map-system` (voir
+> [Tes données](#-tes-données)). Ensuite, plus rien à faire.
 
-> ⚠️ **Première mise à jour seulement** : décompresse **par-dessus** l'ancienne
-> installation, sans la supprimer — les données sont importées automatiquement
-> vers `%APPDATA%\olkarya-map-system`. Ensuite, plus rien à faire.
-
-### 🧑‍💻 Développement
-
-Prérequis : **Node.js 18+**.
-
-```bash
-# Application principale
-cd "Olkarya Map System"
-npm install
-npm run electron     # app desktop complète
-npm start            # serveur seul → http://localhost:3000
-
-# Bot Discord
-cd "../Olkarya Bot"
-npm install
-npm start            # bot + dés 3D → port 4005
-```
-
-Build d'un exécutable :
-
-```bash
-npm run build-exe    # → dist/olkarya-map-system-<version>-win.zip
-```
+**Prérequis** : Windows 10/11 64 bits. Aucun installation, aucun compte,
+tout fonctionne en local.
 
 ---
 
-## 🎮 Utilisation
+## 🚀 Premiers pas
 
-1. **Lance l'app** → le hub s'ouvre sur `http://localhost:3000/hub`.
+1. **Lance l'application** → le hub s'ouvre dans ton navigateur.
 2. **Crée une campagne** (ou un one-shot).
 3. **Entre dans la campagne** et utilise les modules via la barre latérale.
 4. **Battlemap** : importe une carte, place les tokens, prépare le brouillard.
-5. **Bot** : démarre-le depuis le panneau Discord du hub (token + Client ID
-   du [Discord Developer Portal](https://discord.com/developers/applications)).
+5. **Bot Discord** : démarre-le depuis le panneau Discord du hub.
+   - Au **premier lancement**, une fenêtre de configuration s'ouvre :
+     renseigne le **Token** et le **Client ID** de ton application Discord
+     ([Discord Developer Portal](https://discord.com/developers/applications)),
+     puis valide.
+   - Le token est stocké **uniquement sur ta machine**, jamais dans un build.
 
 ---
 
 ## 📺 Overlay OBS
 
+La vue joueurs se lit dans OBS pendant que tu joues la carte de ton côté.
+
 1. **Sources** → **+** → **Navigateur**
 2. **URL** : `http://localhost:3000/obs`
-3. Largeur / hauteur : adapte à ta résolution de stream.
+3. **Largeur / hauteur** : adapte à la résolution de ton stream
+4. **OK**
 
-L'overlay affiche la battlemap (vue joueurs), le tracker d'initiative et les
-dés 3D lancés depuis Discord. Le bot doit tourner pour les dés et la musique.
+L'overlay affiche :
 
----
+- la battlemap (vue joueurs) avec tokens et brouillard de guerre ;
+- le **tracker d'initiative** flottant ;
+- les **dés 3D** lancés depuis Discord.
 
-## 🗂️ Structure du dépôt
-
-```
-Olkarya System Map/
-├── Olkarya Map System/        # 👉 Application desktop (Electron)
-│   ├── electron/              #   fenêtre principale, setup bot, updater
-│   ├── server/                #   Express + Socket.IO (port 3000)
-│   ├── hub/                   #   interface hub (multi-campagnes)
-│   ├── campaign/              #   interface campagne + modules + battlemap
-│   ├── obs/                   #   overlay joueurs pour OBS
-│   ├── shared/                #   code partagé (paths, toasts, dossier)
-│   └── build/ dist/           #   icônes / builds générés
-├── Olkarya Bot/               # 👉 Bot Discord + dés 3D (port 4005)
-│   ├── server.js              #   HTTP + WebSocket + bot
-│   ├── index.html             #   page des dés (OBS-compatible)
-│   └── assets/                #   modèle 3D, thèmes, physique WASM
-├── archives/                  # archives de données (non versionné)
-└── icon-512.png               # logo du projet
-```
-
-Le build Electron embarque le bot Discord via `extraResources` et le démarre
-depuis le panneau du hub.
+> ℹ️ Le bot doit être démarré (panneau Discord du hub) pour les dés 3D
+> et la musique.
 
 ---
 
-## 📚 Documentation
+## 💾 Tes données
 
-| Document | Contenu |
-|----------|---------|
-| [📘 Documentation de l'application](Olkarya%20Map%20System/README.md) | Installation, modules, battlemap, OBS, MAJ |
-| [🤖 Documentation du bot Discord](Olkarya%20Bot/README.md) | Commandes slash, setup multi-serveurs, overlay |
-| [📝 Notes de version](Olkarya%20Map%20System/PATCHNOTES.md) | Ce qui change à chaque release |
-| [🔧 Setup Discord](Olkarya%20Bot/DISCORD_SETUP.md) | Création de l'application Discord |
-| [📺 Guide OBS](Olkarya%20Bot/OBS_GUIDE.md) | Configuration de l'overlay |
-| [🎲 Intégration des dés](Olkarya%20Bot/COMPLETION_SUMMARY.md) | Récapitulatif du système de dés |
-
----
-
-## 💾 Données utilisateur
-
-Toutes les données (campagnes, fiches, uploads, banque de tokens, config du bot)
-vivent **hors de l'application**, dans le dossier utilisateur Windows :
+Toutes tes données — campagnes, fiches, images importées, banque de tokens,
+configuration du bot — sont stockées **en dehors** de l'application, dans :
 
 ```
 %APPDATA%\olkarya-map-system\
@@ -208,7 +150,9 @@ vivent **hors de l'application**, dans le dossier utilisateur Windows :
 └── assets\    # cartes, tokens, fichiers, musique
 ```
 
-Elles survivent à toute mise à jour, suppression ou réinstallation de l'app.
+Conséquence : **tes données survivent** à toute mise à jour, à la suppression
+du dossier de l'application et à sa réinstallation. Sauvegarde ce dossier et
+tu as une copie de tout.
 
 ---
 
@@ -220,15 +164,37 @@ Elles survivent à toute mise à jour, suppression ou réinstallation de l'app.
 | Le bot ne démarre pas | Panneau Discord du hub → vérifie token / Client ID. |
 | Pas de dés 3D à l'écran | Le bot doit tourner (port `4005`). |
 | Les joueurs ne voient rien | L'URL OBS doit pointer vers `http://localhost:3000/obs`. |
-| « Mes campagnes ont disparu » | Tes données sont dans `%APPDATA%\olkarya-map-system`. |
+| La musique ne joue pas | Formats supportés : MP3, OGG, WAV, FLAC, M4A, AAC, OPUS, WEBM. |
+| « Mes campagnes ont disparu » | Elles sont dans `%APPDATA%\olkarya-map-system`. |
+
+---
+
+## ❓ FAQ
+
+**Les données sont-elles envoyées sur Internet ?**
+Non. L'application et le bot tournent en local, sur ta machine. Seul le bot
+Discord se connecte à Discord, uniquement si tu l'utilises.
+
+**Puis-je jouer sans Discord ?**
+Oui. La battlemap, les fiches et l'initiative fonctionnent sans le bot. Le bot
+ajoute les dés 3D, l'initiative et la musique depuis Discord.
+
+**Puis-je jouer à distance / en streaming ?**
+Oui, c'est l'usage principal : tu lances le bot en « hébergé », chaque MJ
+configure le lien OBS de son propre Map System.
+
+**Comment sont mises à jour mes cartes et tokens ?**
+Ils ne sont pas dans l'application : ils restent dans ton dossier `%APPDATA%`,
+donc aucune mise à jour ne peut les écraser.
 
 ---
 
 ## 📄 Licence
 
-Projet personnel pour le streaming D&D. Aucune licence open source n'est encore
-définie. Les bibliothèques utilisées (Electron, Express, Socket.IO, Discord.js,
-Babylon.js, etc.) restent sous leurs licences respectives.
+Logiciel distribué gratuitement, développé pour le streaming D&D. Aucune
+licence open source n'est définie. Les bibliothèques utilisées (Electron,
+Express, Socket.IO, Discord.js, Babylon.js…) restent sous leurs licences
+respectives.
 
 ---
 
