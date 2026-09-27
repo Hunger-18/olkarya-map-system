@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="icon-512.png" alt="Olkarya" width="110" />
-
 # 🐉 Olkarya
 
 **Le compagnon de table ultime pour Maître du Jeu.**
