@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="icon-512.png" alt="Olkarya" width="110" />
+
 # 🐉 Olkarya
 
 **Le compagnon de table ultime pour Maître du Jeu.**
@@ -19,7 +21,6 @@ dés 3D et bot Discord — dans une seule application desktop.
 ## 📖 Sommaire
 
 - [✨ Présentation](#-présentation)
-- [🌊 Projet vibecodé](#️-projet-vibecodé)
 - [🧩 Fonctionnalités](#-fonctionnalités)
 - [⬇️ Téléchargement](#️-téléchargement)
 - [🚀 Premiers pas](#-premiers-pas)
@@ -46,40 +47,8 @@ sans compte ni service externe :
 - un **bot Discord** hébergé : dés 3D à l'écran, initiative, jets de mort, musique —
   il tourne sur un serveur distant, pas sur ton PC.
 
-> ### 🌊 Projet vibecodé
->
-> Olkarya a été **conçu et écrit en « vibe coding »** : le code est produit puis
-> itéré en boucle avec une IA, à partir d'une idée et d'un besoin de table —
-> sans cahier des charges, sans revue de code et sans suite de tests.
->
-> Concrètement : **ça fonctionne, mais attends-toi à des bugs**, à des
-> comportements inattendus et à un code hétérogène. Chaque version est vérifiée
-> à la main avant livraison, jamais par des tests automatisés.
->
-> → Lis [Projet vibecodé](#️-projet-vibecodé) avant de l'utiliser pour une vraie campagne.
-
----
-
-## 🌊 Projet vibecodé
-
-Olkarya est un **projet vibecodé** (*vibe coding*) : il a été entièrement
-conçu et écrit en itérant avec une IA.
-
-| | |
-|---|---|
-| 🧠 **Comment** | Une idée de table → prompt → code généré → testé en jeu → corrigé → rebouclé |
-| 🚫 **Ce qui n'existe pas** | Cahier des charges, revue de code, tests automatisés |
-| ✅ **Ce qui existe** | Un logiciel qui tourne, utilisé chaque semaine en session |
-| ⚠️ **Conséquence** | Des bugs, des comportements inattendus, un code hétérogène |
-
-### Ce que ça veut dire pour toi
-
-- **Sauvegarde `%APPDATA%\olkarya-map-system`** avant une grosse session.
-- **Teste sur une campagne jetable** avant de migrer ta campagne principale.
-- **Signale les bugs** ([issues](https://github.com/Hunger-18/olkarya-map-system/issues)) :
-  ils sont attendus, et les retours utiles.
-- **Rien n'est garanti** : ni stabilité, ni sauvegarde, ni sécurité. À utiliser
-  comme un outil de jeu, pas comme un logiciel critique.
+Olkarya est un projet **vibe codé** : il a été conçu et écrit avec l'aide d'une IA,
+en itérant sur le besoin réel d'une table.
 
 ---
 
